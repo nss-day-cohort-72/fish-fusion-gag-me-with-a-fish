@@ -1,10 +1,16 @@
-const { fishMenu, chefsFish, mongerFishToSell } = require("./restaurant.js")
-//import { fishMenu, chefsFish, mongerFishToSell } from "./restaurant.js"
-const {chefConstraints} = require("./fishMonger.js")
-const dailyPriceLimit = 7.00
-const constraints = chefConstraints(mongerFishToSell, dailyPriceLimit)
+const { fishMenu } = require('./restaurant.js')
+const { mongerInventory, chefConstraints } = require('./fishMonger.js')
+const { todaysCatchData, boatInventory } = require('./fishingBoat.js')
+const dailyPriceLimit = 8
+const todaysCatch = boatInventory(todaysCatchData)
+const mongerFishToSell = mongerInventory(todaysCatch)
+const chefsFish = chefConstraints(mongerFishToSell, dailyPriceLimit)
+// const constraints = chefConstraints(mongerFishToSell, dailyPriceLimit)
+
+
 const menu = fishMenu(chefsFish)
 console.log(menu)
 
-module.exports = { dailyPriceLimit }
+
+
 

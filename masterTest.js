@@ -56,14 +56,15 @@ let heading = document.getElementById('species')
 let soup = document.getElementById('soup')
 let sandwich = document.getElementById('sandwich')
 let grilled = document.getElementById('grilled')
+
 const fishMenu = (fishToCook) => {
     console.log(fishToCook)
     for (const fish of fishToCook) {
         let species = fish.species
-        heading.textContent = `${species} Soup`
-        console.log(`${species} Soup`)
-        console.log(`${species} Sandwich`)
-        console.log(`Grilled ${species}`)
+        heading.textContent = `${species}`
+        soup.textContent =(`${species} Soup`)
+        sandwich.textContent =(`${species} Sandwich`)
+        grilled.textContent =(`Grilled ${species}`)
     }
 }
 const constraints = chefConstraints(mongerFishToSell, dailyPriceLimit)

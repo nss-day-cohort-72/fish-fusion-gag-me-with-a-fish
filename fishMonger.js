@@ -1,14 +1,4 @@
-const { boatInventory, todaysCatchData } = require("./fishingBoat.js")
-const { dailyPriceLimit } = require("./main.js")
-// const {dailyPriceLimit} = require("./main.js")
-// This module needs to import the todays catch function
-// Needs a function that generates its own inventory for restaurants to purchase
-// Function 10 of each <= $7.50 if the quantity is < 10 NO BUY
-
-const todaysCatch = boatInventory(todaysCatchData)
-
 const mongerInventory = (catchOfTheDay) => {
-    console.log(catchOfTheDay)
     const fishArray = []
     for (const fish of catchOfTheDay) {
         // let species = fish.species
@@ -29,15 +19,11 @@ const chefConstraints = (mongerInventory, maxPrice) => {
         let price = fish.price
         if (price < maxPrice) {
             fish.amount = Math.floor(fish.amount / 2)
-            console.log(fish.amount)
             fishArray.push(fish)
         }
     }
     return fishArray
 }
 
-let chefsFish = chefConstraints(dailyPriceLimit)
-
-
-module.exports = { mongerInventory, chefConstraints, todaysCatch }
+module.exports = {mongerInventory, chefConstraints}
 
