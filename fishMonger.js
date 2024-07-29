@@ -1,4 +1,6 @@
-const { boatInventory, todaysCatchData } = require("./fishingBoat")
+const { boatInventory, todaysCatchData } = require("./fishingBoat.js")
+const { dailyPriceLimit } = require("./main.js")
+// const {dailyPriceLimit} = require("./main.js")
 // This module needs to import the todays catch function
 // Needs a function that generates its own inventory for restaurants to purchase
 // Function 10 of each <= $7.50 if the quantity is < 10 NO BUY
@@ -6,6 +8,7 @@ const { boatInventory, todaysCatchData } = require("./fishingBoat")
 const todaysCatch = boatInventory(todaysCatchData)
 
 const mongerInventory = (catchOfTheDay) => {
+    console.log(catchOfTheDay)
     const fishArray = []
     for (const fish of catchOfTheDay) {
         // let species = fish.species
@@ -18,7 +21,7 @@ const mongerInventory = (catchOfTheDay) => {
     return fishArray
 }
 
-const mongerFishToSell = mongerInventory(todaysCatch)
+// const mongerFishToSell = mongerInventory(todaysCatch)
 
 const chefConstraints = (mongerInventory, maxPrice) => {
     const fishArray = []
@@ -32,5 +35,9 @@ const chefConstraints = (mongerInventory, maxPrice) => {
     }
     return fishArray
 }
-module.exports = { mongerInventory, chefConstraints, mongerFishToSell }
+
+let chefsFish = chefConstraints(dailyPriceLimit)
+
+
+module.exports = { mongerInventory, chefConstraints, todaysCatch }
 

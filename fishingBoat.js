@@ -11,5 +11,5 @@ const todaysCatchData = [
 const boatInventory = (todaysCatch) => {
     return todaysCatch
 }
-
+console.log(boatInventory(todaysCatchData))
 module.exports = { boatInventory, todaysCatchData }
