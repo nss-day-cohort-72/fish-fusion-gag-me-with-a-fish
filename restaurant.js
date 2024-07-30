@@ -4,23 +4,23 @@ const fishMenu = (fishToCook) => {
     for (const fish of fishToCook) {
         let species = fish.species
         counter++
-        if (counter != 4) {
-            console.log(`<h2>${species}</h2>`)
+        if (counter != fishToCook.length) {
+            console.log(`  <h2>${species}</h2>`)
             console.log(`  <section class="menu__item">${species} Soup</section>`)
             console.log(`  <section class="menu__item">${species} Sandwich</section>`)
             console.log(`  <section class="menu__item">Grilled ${species}</section>\n`)
         } else {
-            console.log(`<h2>${species}</h2>`)
+            console.log(`  <h2>${species}</h2>`)
             console.log(`  <section class="menu__item">${species} Soup</section>`)
             console.log(`  <section class="menu__item">${species} Sandwich</section>`)
             console.log(`  <section class="menu__item">Grilled ${species}</section>`)
         }
-
     }
+    console.log(`</article">`)
 }
-
 module.exports = { fishMenu }
 
+//EXAMPLE FORMAT BELOW
 /* <article class="menu">
     <h2>Halibut</h2>
     <section class="menu__item">Halibut Soup</section>

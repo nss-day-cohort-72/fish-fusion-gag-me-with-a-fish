@@ -10,9 +10,6 @@ const mongerInventory = (catchOfTheDay) => {
     }
     return fishArray
 }
-
-// const mongerFishToSell = mongerInventory(todaysCatch)
-
 const chefConstraints = (mongerInventory, maxPrice) => {
     const fishArray = []
     for (const fish of mongerInventory) {
