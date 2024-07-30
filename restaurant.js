@@ -1,21 +1,44 @@
 const fishMenu = (fishToCook) => {
-    let counter = 0
     console.log(`<article class="menu">`)
-    for (const fish of fishToCook) {
-        let species = fish.species
-        counter++
-        if (counter != fishToCook.length) {
-            console.log(`  <h2>${species}</h2>`)
-            console.log(`  <section class="menu__item">${species} Soup</section>`)
-            console.log(`  <section class="menu__item">${species} Sandwich</section>`)
-            console.log(`  <section class="menu__item">Grilled ${species}</section>\n`)
-        } else {
-            console.log(`  <h2>${species}</h2>`)
-            console.log(`  <section class="menu__item">${species} Soup</section>`)
-            console.log(`  <section class="menu__item">${species} Sandwich</section>`)
-            console.log(`  <section class="menu__item">Grilled ${species}</section>`)
-        }
-    }
+    //species
+    
+    const speciesHeading = fishToCook.map((fish, i) => {
+        let output =  ``;
+        if (i !== 0) output += `
+`;
+        output += `    <h2>${fish.species}</h2>
+        <section class="menu__item">${fish.species} Soup</section>
+        <section class="menu__item">${fish.species} Sandwich</section>
+        <section class="menu__item">Grilled ${fish.species}</section>`
+
+        return output;
+    })
+
+
+    const html = speciesHeading.join('')
+    console.log(html)
+    // for (const fish of fishToCook) {
+    //     console.log(fishToCook)
+    //     let species = fish.species
+    //     counter++
+    //     if (counter != fishToCook.length) {
+    //         console.log(`  <h2>${species}</h2>`)
+    //         console.log(`  <section class="menu__item">${species} Soup</section>`)
+    //         console.log(`  <section class="menu__item">${species} Sandwich</section>`)
+    //         console.log(`  <section class="menu__item">Grilled ${species}</section>\n`)
+    //     } else {
+    //         console.log(`  <h2>${species}</h2>`)
+    //         console.log(`  <section class="menu__item">${species} Soup</section>`)
+    //         console.log(`  <section class="menu__item">${species} Sandwich</section>`)
+    //         console.log(`  <section class="menu__item">Grilled ${species}</section>`)
+    //     }
+    // }
+
+    // const speciesHeading = fishToCook.map(fish => `<h2>${fish.species}</h2> 
+    //     <section class="menu__item">${fish.species} Soup</section>
+    //     <section class="menu__item">${fish.species} Sandwich</section>
+    //     <section class="menu__item">Grilled ${fish.species}</section>
+    //     `)
     console.log(`</article">`)
 }
 module.exports = { fishMenu }
